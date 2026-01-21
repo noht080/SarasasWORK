@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Software Engineering Student Portfolio",
   description: "Portfolio website for a Software Engineering student entering university",
+  verification: {
+    google: "XkpoCf007JFR2eQ7U_9wBhBC64ds8752LjUEVBUA2w0",
+  },
 };
 
 /**
