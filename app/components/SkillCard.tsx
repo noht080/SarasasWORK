@@ -31,14 +31,16 @@ export default function SkillCard({
   icon,
 }: SkillCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+    <div className="group bg-white/90 dark:bg-gray-800/80 rounded-2xl border border-black/5 dark:border-white/10 shadow-sm p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/**
        * COMPONENT REUSABILITY:
        * - This same component can display any skill
        * - Just pass different props and it displays different content
        * - This is the power of React components!
        */}
-      <div className="text-4xl mb-4">{icon}</div>
+      <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-blue-50 text-2xl mb-4 shadow-sm dark:bg-blue-900/30">
+        {icon}
+      </div>
       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
         {skill}
       </h3>

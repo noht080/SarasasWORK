@@ -22,6 +22,7 @@
 "use client"; // This directive makes it a Client Component (runs in browser)
 
 import { useState } from "react";
+import GradientText from "./GradientText";
 
 /**
  * TYPESCRIPT INTERFACE
@@ -35,11 +36,10 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -53,7 +53,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm dark:bg-gray-900/80">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur-xl shadow-sm transition-colors dark:border-white/10 dark:bg-gray-900/70">
       {/**
        * TAILWIND CSS EXPLANATION:
        * - All these classes are Tailwind utility classes
@@ -84,8 +84,23 @@ export default function Navbar() {
            * - "h-16" = height: 4rem (64px)
            */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-              SE Portfolio
+            <h1 className="text-3xl sm:text-4xl font-bold">
+              <GradientText
+                colors={[
+                  "#ff0000",
+                  "#ff7f00",
+                  "#ffff00",
+                  "#00ff00",
+                  "#0000ff",
+                  "#4b0082",
+                  "#8b00ff",
+                  "#ff0000",
+                ]}
+                animationSpeed={8}
+                showBorder={false}
+              >
+                SE Portfolio
+              </GradientText>
             </h1>
           </div>
 

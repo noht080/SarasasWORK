@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * ProjectCard Component
  * 
@@ -5,6 +7,8 @@
  * - Notice how we define the shape of our props with an interface
  * - This gives us autocomplete in editors and catches errors early
  */
+
+import AnimatedContent from "../AnimatedContent";
 
 interface ProjectCardProps {
   title: string;
@@ -22,7 +26,7 @@ export default function ProjectCard({
   liveUrl,
 }: ProjectCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div className="group bg-white/90 dark:bg-gray-800/80 rounded-2xl border border-black/5 dark:border-white/10 shadow-sm p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/**
        * TAILWIND TRANSFORMATIONS:
        * - "transform" enables CSS transforms
@@ -54,24 +58,52 @@ export default function ProjectCard({
       {/* Action Buttons */}
       <div className="flex gap-3">
         {githubUrl && (
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+          <AnimatedContent
+            distance={40}
+            direction="vertical"
+            reverse={false}
+            duration={0.6}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.1}
+            delay={0}
+            className="inline-block"
           >
-            View Code →
-          </a>
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+            >
+              View Code →
+            </a>
+          </AnimatedContent>
         )}
         {liveUrl && (
-          <a
-            href={liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-green-600 dark:text-green-400 hover:underline font-medium"
+          <AnimatedContent
+            distance={40}
+            direction="vertical"
+            reverse={false}
+            duration={0.6}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.1}
+            delay={0.1}
+            className="inline-block"
           >
-            Live Demo →
-          </a>
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 dark:text-green-400 hover:underline font-medium"
+            >
+              Live Demo →
+            </a>
+          </AnimatedContent>
         )}
       </div>
     </div>
